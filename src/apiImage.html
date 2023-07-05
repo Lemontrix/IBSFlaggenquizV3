@@ -1,49 +1,65 @@
+<!DOCTYPE html>
 <html>
 
 <head>
     <style>
+        body {
+            background-image: url('background.jpg');
+            background-size: cover;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            margin: 50px auto;
+            width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
         iframe {
             display: block;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: auto;
-            margin-bottom: auto;
-            width: 25%;
-            height: 25%;
-            border: 0;
+            margin: 0 auto;
+            width: 350px;
+            height: 350px;
+            border: 2px solid black;
+            box-sizing: border-box;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .form-container label,
+        .form-container input,
+        .form-container button {
+            margin: 5px;
+            width: 200px;
         }
     </style>
     <title>Flaggenseite</title>
-
-
+    <script src="meinScript.js"></script>
 </head>
 
 <body>
-
-    <br>
-    <section id="#Chatfenster">
-        <form>
-            <label>Name des Landes:</label>
-            <input id ="userEingabe"><br><br>
-            <button type ="Button" id= "ok"> Bestätigen</button>
-            <script src ="getUserEingabe.js"></script>
-        </form>
-        <iframe src="/apiImage"></iframe>
-        
-   
-        <style>
-            button,
-            input {
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                margin-top: auto;
-                margin-bottom: auto;
-
-            }
-        </style>
-    </section>
-
+    <div class="container">
+        <br>
+        <section id="Chatfenster">
+            <div class="form-container">
+                <form>
+                    <label for="userEingabe">Name des Landes:</label>
+                    <input id="userEingabe"><br>
+                </form>
+                <button type="Button" id="ok" onclick="bestaetigen()">Bestätigen</button>
+            </div>
+            <iframe src="/apiImage"></iframe>
+        </section>
+    </div>
 </body>
 
 </html>
