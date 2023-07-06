@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
   <title>Lobby</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* Stile für die Lobby */
     body {
-      background-image: url('background.jpg');
+      background-image: url('/src/background.jpg');
       background-size: cover;
       text-align: center;
       font-family: Arial, sans-serif;
@@ -65,4 +66,6 @@
     <a href="/src/apiImage.html" id="play-button">Spielen</a>
   </div>
 </body>
+<script src="lobby.js"></script>
+<script src="mqtt.js"></script>
 </html>

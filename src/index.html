@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
@@ -8,40 +7,66 @@
     <script type="text/javascript"></script>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Stile für die Lobby */
+        body {
+          background-image: url('/src/background.jpg');
+          background-size: cover;
+          text-align: center;
+          font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+          color: #333;
+        }
+        
+        #lobby {
+          margin: 150px auto;
+          width: 60%;
+          padding: 20px;
+          background-color: rgba(255, 223, 0, 0.9); /* Goldenes Rechteck mit Transparenz */
+          border: 3px solid black; /* Schwarzer Rand */
+        }
+        
+        #size {
+          text-align: center;
+          margin-top: 20%;
+        }
+      </style>
 </head>
 
 <body>
     <div id="top">
         <div id="logo">IBS</div>
         <div id="logo-name">Flaggenquiz 2023</div>
-        <div id="image">
-            <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-                alt="Random Title Bild">
-        </div>
     </div>
-    <div id="main">
-        <div id="top">
-            <a href="/src/apiImage.html" id="logo">Spielen</a>
-            <script type="text/javascript"></script>
-            <br><br><br>
-            <a href="/src/impressum.html">Impressum</a>
-        </div>
-        <div>
-            <label for="nameInput">Name:</label>
-            <input type="text" id="nameInput">
-            <button id="joinButton">Join Lobby</button>
-        </div>
+    <div id="image">
 
-        <div class="lobby">
-            <h2>Lobby:</h2>
-            <ul id="lobbyList"></ul>
+        <div id="lobby">
+            <h1>Name</h1>
+            <div>
+                <label for="nameInput">Name:</label>
+                <input type="text" id="nameInput">
+                <button id="joinButton">Join Lobby</button>
+                <br><br><br>
+            </div>
         </div>
+                <a href="/src/impressum.html" id="impressum">Impressum</a>
     </div>
-    <div id="footer">
-        Copyright 2023 | InformaTEKKer
-    </div>
+    
     <script src="lobby.js"></script>
     <script src="mqtt.js"></script>
+    <script>
+        function joinLobby() {
+            var name = document.getElementById("nameInput").value;
+            if (name) {
+                // Weiterleitung zur Lobby-Seite
+                window.location.href = "lobby.html";
+            } else {
+                alert("Bitte geben Sie Ihren Namen ein.");
+            }
+        }
+    </script>
 </body>
 
 </html>
