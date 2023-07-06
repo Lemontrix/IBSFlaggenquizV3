@@ -1,37 +1,31 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
   <title>Lobby</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* Stile für die Lobby */
     body {
-      background-image: url('/src/background.jpg');
+      background-image: url('background.jpg');
       background-size: cover;
       text-align: center;
       font-family: Arial, sans-serif;
     }
-
+    
     h1 {
       color: #333;
     }
-
+    
     #lobby {
       margin: 50px auto;
       width: 400px;
       padding: 20px;
-      background-color: rgba(255, 223, 0, 0.9);
-      /* Goldenes Rechteck mit Transparenz */
-      border: 2px solid black;
-      /* Schwarzer Rand */
-      position: relative;
-      /* Positionierung für den Button */
-      z-index: 2;
-      /* Stellenwert erhöhen, um über dem Button zu sein */
+      background-color: rgba(255, 223, 0, 0.9); /* Goldenes Rechteck mit Transparenz */
+      border: 2px solid black; /* Schwarzer Rand */
+      position: relative; /* Positionierung für den Button */
+      z-index: 2; /* Stellenwert erhöhen, um über dem Button zu sein */
     }
-
+    
     #players {
       text-align: left;
       margin-top: 20px;
@@ -39,8 +33,7 @@
 
     #play-button {
       position: absolute;
-      bottom: -90px;
-      /* 50 Pixel über dem unteren Rand der Lobby */
+      bottom: -90px; /* 50 Pixel über dem unteren Rand der Lobby */
       left: 50%;
       transform: translateX(-50%);
       font-size: 24px;
@@ -53,28 +46,23 @@
     }
   </style>
 </head>
-
 <body>
-
   <div id="lobby">
     <h1>Lobby</h1>
-
+    
     <div id="players">
       <div class="lobby">
         <h2>Spieler:</h2>
         <ul id="lobbyList"></ul>
       </div>
-
+      
       <!-- Spielerliste hier einfügen -->
-
+    
 
 
     </div>
-
+    
     <a href="/src/apiImage.html" id="play-button">Spielen</a>
   </div>
-  <script src="lobby.js"></script>
-  <script src="mqtt.js"></script>
 </body>
-
 </html>

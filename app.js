@@ -31,8 +31,6 @@ app.get('/lobby.js', (req, res) => res.sendFile(__dirname + '/src/lobby.js'));
 
 app.get('/mqtt.js', (req, res) => res.sendFile(__dirname + '/src/mqtt.js'));
 
-app.get('/lobby.html', (req, res) => res.sendFile(__dirname + '/src/lobby.html'));
-
 app.get('/apiImage', (req, res) => {
 
     var randomID = Math.floor(Math.random() * 242);
