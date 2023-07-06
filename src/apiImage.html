@@ -2,56 +2,8 @@
 <html>
 
 <head>
-    <style>
-        body {
-            background-image: url('background.jpg');
-            background-size: cover;
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            background-color: white;
-            padding: 50px;
-            margin: 50px auto;
-            width: 400px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-
-        iframe {
-            display: block;
-            margin: 0 auto;
-            width: auto;
-            height: auto;
-            border: 2px solid black;
-            box-sizing: border-box;
-        }
-
-        .form-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            height: 100%;
-            margin-top: 20px;
-        }
-
-        .form-container label,
-        .form-container input,
-        .form-container button {
-            margin: 20px;
-            width: 200px;
-        }
-
-        .form-container input {
-            order: 1;
-        }
-
-        .form-container button {
-            order: 2;
-        }
-    </style>
     <title>Flaggenseite</title>
+    <link rel="stylesheet" href="apiImage.css">
     <script src="getUserEingabe.js"></script>
 </head>
 
@@ -64,6 +16,8 @@
                 function resizeIframe(obj) {
                     obj.style.height = 0;
                     obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+                    obj.style.width = 0;
+                    obj.style.width = obj.contentWindow.document.body.scrollWidth + 'px';
                 }
             </script>
             <div class="form-container">
