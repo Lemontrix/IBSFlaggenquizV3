@@ -33,6 +33,8 @@ app.get('/mqtt.js', (req, res) => res.sendFile(__dirname + '/src/mqtt.js'));
 
 app.get('/lobby.html', (req, res) => res.sendFile(__dirname + '/src/lobby.html'));
 
+app.get('/getUserEingabe.js', (req, res) => res.sendFile(__dirname + '/src/getUserEingabe.js'));
+
 app.get('/apiImage', (req, res) => {
 
     var randomID = Math.floor(Math.random() * 242);
@@ -1274,10 +1276,9 @@ app.get('/apiImage', (req, res) => {
 });
 
 
-app.get('/validate', (req, res) => {
-    console.log(countryName)
+app.post('/validate', (req, res) => {
 
-    var userEingabe = 'Deutschland';
+    var { userEingabe } = req.body;
     console.log('Die user eingabe war:' + userEingabe);
 
 
