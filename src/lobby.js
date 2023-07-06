@@ -4,13 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if(joinButton){
   joinButton.addEventListener('click', () => {
-    localStorage.setItem('xyz', document.getElementById('nameInput'));
-    const name = localStorage.getItem('xyz')
-    if (name) {
-      joinLobby(localStorage.getItem('xyz'));
-      window.location.href = "lobby.html";
-    } else
-      alert("Bitte geben Sie Ihren Namen ein.");
+    var nameinput= document.getElementById('nameInput').value;
+    window.location.href = 'lobby.html?name=' + encodeURIComponent(nameinput);
   });
   }
 
