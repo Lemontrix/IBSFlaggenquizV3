@@ -18,9 +18,7 @@ function sendFlag(eingabe) {
     })
         .then(response => response.json())
         .then(data => {
-            var punkte = data.value;
-            punkte += 1
-            console.log(punkte)
+            //TODO
             console.log(data + "wurde versendet!")
         });
 }
