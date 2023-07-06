@@ -1,15 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   const joinButton = document.getElementById('joinButton');
   const nameInput = document.getElementById('nameInput');
-  const lobbyList = document.getElementById('lobbyList');
+
 
   joinButton.addEventListener('click', () => {
     const name = nameInput.value;
     joinLobby(name);
   });
-  
-
-
 
 });
 
@@ -23,11 +20,7 @@ function joinLobby(name) {
   })
     .then(response => response.json())
     .then(data => {
-      lobbyList.innerHTML = '';
-      data.names.forEach(name => {
-        const listItem = document.createElement('li');
-        listItem.textContent = name;
-        lobbyList.appendChild(listItem);
-      });
+      window.location.href = "/lobby.html"
     });
+
 }

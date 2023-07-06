@@ -24,11 +24,3 @@ mqttClient.on('message', (topic, message) => {
     }
 });
 
-
-
-
-function joinLobby() {
-    const nameInput = document.getElementById('nameInput');
-    const name = nameInput.value;
-    
-}
