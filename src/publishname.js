@@ -13,7 +13,7 @@ function getNameList() {
             data.names.forEach(name => {
                 const player = document.createElement('p');
                 player.textContent = name;
-                lobbyList.appendChild(player);
+                lobbyList.appendChild(player); //hier das problem
             });
 
         });
