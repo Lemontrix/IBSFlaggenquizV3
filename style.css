@@ -69,21 +69,20 @@ body {
     text-align: center;
     font-family: Arial, sans-serif;
   }
-  
+
   h1 {
     color: #333;
   }
-  
+
   #lobby {
     margin: 150px auto;
     width: 60%;
     padding: 20px;
-    background-color: rgba(255, 223, 0, 0.9); /* Goldenes Rechteck mit Transparenz */
-    border: 3px solid black; /* Schwarzer Rand */
+    background-color: rgba(255, 223, 0, 0.9); /* Goldenes Rechteck mit Transparenz /
+    border: 3px solid black; / Schwarzer Rand */
   }
-  
+
   #size {
     text-align: center;
     margin-top: 20%;
   }
-  

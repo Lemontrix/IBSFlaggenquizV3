@@ -7,6 +7,7 @@ const mqttClient = mqtt.connect('wss://test.mosquitto.org:8081');
 const flags = require('./flags.js')
 var randomID = null;
 var country = null;
+var userInput = null;
 
 const bodyParser = require('body-parser');
 
@@ -24,7 +25,7 @@ app.post('/join-lobby', (req, res) => {
     mqttClient.publish('lobby', JSON.stringify(lobby));
 });
 
-app.get('/namepublish', (req, res) => {
+app.get('/publishname', (req, res) => {
     res.json({ names: lobby });
 
 });
@@ -40,9 +41,9 @@ app.get('/mqtt.js', (req, res) => res.sendFile(__dirname + '/src/mqtt.js'));
 
 app.get('/lobby.html', (req, res) => res.sendFile(__dirname + '/src/lobby.html'));
 
-app.get('/getUserEingabe.js', (req, res) => res.sendFile(__dirname + '/src/getUserEingabe.js'));
+app.get('/senduserinput.js', (req, res) => res.sendFile(__dirname + '/src/senduserinput.js'));
 
-app.get('/namepublish.js', (req, res) => res.sendFile(__dirname + '/src/namepublish.js'));
+app.get('/publishname.js', (req, res) => res.sendFile(__dirname + '/src/publishname.js'));
 
 app.get('/flags.js', (req, res) => res.sendFile(__dirname + '/flags.js'));
 
@@ -51,16 +52,18 @@ app.get('/apiImage', (req, res) => {
     randomID = Math.floor(Math.random() * 242);
     country = flags.randomFlag(randomID);
     res.sendFile(country.path);
-    console.log(country.path);
+
+});
+
+app.post('/userInput', (req, res) => {
+    userInput = req.body;
+    console.log('Die user eingabe war:' + userInput);
+   
 
 });
 
 
 app.post('/validate', (req, res) => {
-
-    var { userEingabe } = req.body;
-    console.log('Die user eingabe war:' + userEingabe);
-
 
 
     if (userEingabe == countryName || userEingabe == countryNameAlternativ) {
