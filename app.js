@@ -7,7 +7,7 @@ const mqttClient = mqtt.connect('wss://test.mosquitto.org:8081');
 const flags = require('./flags.js')
 var randomID = null;
 var country = null;
-var userInput = null;
+var userInput = {};
 
 const bodyParser = require('body-parser');
 
@@ -55,11 +55,9 @@ app.get('/apiImage', (req, res) => {
 
 });
 
-app.post('/userInput', (req, res) => {
-    userInput = req.body;
-    console.log('Die user eingabe war:' + userInput);
-   
-
+app.post('/userInput', (req, res) => { 
+    Object.assign(userInput, req.body);
+    console.log(userInput)
 });
 
 
