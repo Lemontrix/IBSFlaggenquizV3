@@ -18,7 +18,7 @@ function sendUserInput(userInput) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+            //TODO funktion für Button einfügen
         });
 }
 
