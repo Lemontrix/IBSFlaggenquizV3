@@ -4,16 +4,16 @@ getNameList()
 
 
 function getNameList() {
-    fetch('/namepublish', {
+    fetch('/publishName', {
         method: 'GET'
     })
         .then(response => response.json())
         .then(data => {
             lobbyList.innerHTML = '';
             data.names.forEach(name => {
-                const listItem = document.createElement('li');
-                listItem.textContent = name;
-                lobbyList.appendChild(listItem);
+                const player = document.createElement('p');
+                player.textContent = name;
+                lobbyList.appendChild(player);
             });
 
         });

@@ -8,7 +8,7 @@ body {
 }
 
 #logo {
-    color: white;
+    color: rgb(0, 0, 0);
     background-color: rgb(255, 223, 0);
     display: inline-block;
     font-size: 32px;
@@ -16,6 +16,19 @@ body {
     padding: 8px;
     margin-top: 16px;
 }
+
+#logo2 {
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 223, 0);
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 8px;
+    margin-top: 280px;
+    float: right;
+    margin-right: 2%;
+}
+
 
 #logo-name {
     font-size: 32px;
@@ -56,21 +69,20 @@ body {
     text-align: center;
     font-family: Arial, sans-serif;
   }
-  
+
   h1 {
     color: #333;
   }
-  
+
   #lobby {
     margin: 150px auto;
     width: 60%;
     padding: 20px;
-    background-color: rgba(255, 223, 0, 0.9); /* Goldenes Rechteck mit Transparenz */
-    border: 3px solid black; /* Schwarzer Rand */
+    background-color: rgba(255, 223, 0, 0.9); /* Goldenes Rechteck mit Transparenz /
+    border: 3px solid black; / Schwarzer Rand */
   }
-  
+
   #size {
     text-align: center;
     margin-top: 20%;
   }
-  

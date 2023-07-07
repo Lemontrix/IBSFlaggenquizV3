@@ -1235,6 +1235,6 @@ function randomFlag(randomID) {
 
     }
 
-    const filePath = { countryName: countryName, path: path }
-    return filePath
+    const country = { countryName: countryName, path: path }
+    return country
 }
