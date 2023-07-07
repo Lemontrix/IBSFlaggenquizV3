@@ -11,7 +11,7 @@ body {
     margin: auto;
     width: 400px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    position: relative;
+    margin-top: 10%;
 }
 
 iframe {
@@ -26,16 +26,17 @@ iframe {
 .timebox {
     background-color: white;
     display: table-cell;
-    width: 5%;
-    height: 2%;
+    width: 10%;
+    height: 4%;
     border: 1px solid black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    position: absolute;
-    top: 5%;
-    right: 25%; 
+    position: fixed;
+    top: 10px; /* Anpassen des Abstands von oben */
+    right: 10px; /* Anpassen des Abstands von rechts */
     text-align: center;
-    
+    font-size:xx-large;
 }
+
 
 .form-container {
     display: flex;
