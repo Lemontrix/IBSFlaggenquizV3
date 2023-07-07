@@ -1,7 +1,5 @@
 const express = require('express');
 const app = express();
-var countryName = '';
-var countryNameAlternativ = '';
 const mqtt = require('mqtt')
 const mqttClient = mqtt.connect('wss://test.mosquitto.org:8081');
 const flags = require('./flags.js')
@@ -10,6 +8,7 @@ var country = null;
 var userInput = {};
 
 const bodyParser = require('body-parser');
+const { getValidate } = require('./src/getValidate.js');
 
 app.use(bodyParser.json());
 
@@ -47,6 +46,8 @@ app.get('/publishname.js', (req, res) => res.sendFile(__dirname + '/src/publishn
 
 app.get('/flags.js', (req, res) => res.sendFile(__dirname + '/flags.js'));
 
+app.get('/getvalidate.js', (req, res) => res.sendFile(__dirname + '/getvalidate.js'));
+
 app.get('/apiImage', (req, res) => {
 
     randomID = Math.floor(Math.random() * 242);
@@ -57,21 +58,10 @@ app.get('/apiImage', (req, res) => {
 
 app.post('/userInput', (req, res) => { 
     Object.assign(userInput, req.body);
-    console.log(userInput)
-});
-
-
-app.post('/validate', (req, res) => {
-
-
-    if (userEingabe == countryName || userEingabe == countryNameAlternativ) {
-        res.send('richtig');
-    }
-    else {
-        res.send('falsch')
-    }
+    getValidate(userInput.userInput, country.countryName, country.alternativCountryName);
 
 });
+
 
 app.listen(3000, () => {
     console.log('Port 3000!')
