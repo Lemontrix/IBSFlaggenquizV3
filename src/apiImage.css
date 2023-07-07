@@ -8,9 +8,10 @@ body {
 .container {
     background-color: white;
     padding: 50px;
-    margin: 50px auto;
+    margin: auto;
     width: 400px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
 iframe {
@@ -20,6 +21,20 @@ iframe {
     height: auto;
     border: 2px solid black;
     box-sizing: border-box;
+}
+
+.timebox {
+    background-color: white;
+    display: table-cell;
+    width: 5%;
+    height: 2%;
+    border: 1px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 5%;
+    right: 25%; 
+    text-align: center;
+    
 }
 
 .form-container {
