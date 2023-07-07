@@ -15,6 +15,17 @@ body {
     z-index: 0;
 }
 
+.container2 {
+    background-color: gold;
+    padding: 50px;
+    margin: auto;
+    width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-top: 8%;
+    z-index: 0;
+    border: 2px solid black;
+}
+
 iframe {
     display: block;
     margin: 0 auto;
@@ -36,6 +47,15 @@ iframe {
     right: 10px;
     text-align: center;
     font-size:xx-large;
+}
+
+#zuruckbutton {
+    background-color: gold;
+    font-size: x-large;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 
