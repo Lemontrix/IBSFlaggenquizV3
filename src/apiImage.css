@@ -11,7 +11,7 @@ body {
     margin: auto;
     width: 400px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    margin-top: 10%;
+    margin-top: 8%;
     z-index: 0;
 }
 
@@ -46,7 +46,7 @@ iframe {
     height: 4%;
     border: 1px solid black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    margin-top: 5%;
+    top:10px;
     text-align: center;
     font-size: xx-large;
     top: 0;
