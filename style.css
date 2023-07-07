@@ -24,9 +24,17 @@ body {
     font-size: 20px;
     font-weight: bold;
     padding: 8px;
-    margin-top: 280px;
-    float: right;
-    margin-right: 2%;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+#logo3 img {
+    position: absolute;
+    top:5px;
+    right: 5px;
+    width: 100px;
+    height: 100px;
 }
 
 
