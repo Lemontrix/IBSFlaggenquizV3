@@ -1,0 +1,65 @@
+body {
+    background-image: url('background.jpg');
+    background-size: cover;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background-color: white;
+    padding: 50px;
+    margin: auto;
+    width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-top: 5%;
+    z-index: 0;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    margin-top: 20px;
+}
+
+.form-container label {
+    margin: 15px;
+    width: 200px;
+}
+
+.container {
+    text-align: center;
+}
+
+.container {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid black;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+th {
+    background-color: black;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.knopf {
+    width: 2px;
+    height: 2px;
+    padding: 0;
+}
