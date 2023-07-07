@@ -3,19 +3,26 @@ const app = express();
 const mqtt = require('mqtt')
 const mqttClient = mqtt.connect('wss://test.mosquitto.org:8081');
 const flags = require('./flags.js')
+
+// zufallsvariable zur bestimmung der zufälligen Flagge
 var randomID = null;
+
+// json mit name des landes, alternativ name des lades(falls vorhanden) und filepath
 var country = null;
+
+// flaggen schätzung des nutzers
 var userInput = {};
 
 const bodyParser = require('body-parser');
+
 const { getValidate } = require('./src/getValidate.js');
 
 app.use(bodyParser.json());
 
-// Array to store the names in the lobby
+// Array zum Speichern sämmtlicher der Lobby begetreten Spieler
 const lobby = [];
 
-// Endpoint to join the lobby
+// endpunkt zum übergeben des Spielernamens
 app.post('/join-lobby', (req, res) => {
     const { name } = req.body;
     lobby.push(name);
@@ -24,6 +31,7 @@ app.post('/join-lobby', (req, res) => {
     mqttClient.publish('lobby', JSON.stringify(lobby));
 });
 
+//endpunkt zum anzeigen der begetretenen Spieler
 app.get('/publishname', (req, res) => {
     res.json({ names: lobby });
 
@@ -48,6 +56,7 @@ app.get('/flags.js', (req, res) => res.sendFile(__dirname + '/flags.js'));
 
 app.get('/getvalidate.js', (req, res) => res.sendFile(__dirname + '/getvalidate.js'));
 
+//Endpunkt zum eigentlichen Flaggenquiz
 app.get('/apiImage', (req, res) => {
 
     randomID = Math.floor(Math.random() * 242);
@@ -56,13 +65,14 @@ app.get('/apiImage', (req, res) => {
 
 });
 
+//Endpunkt zum absenden & überprüfen der vom Spieler getippten Flagge
 app.post('/userInput', (req, res) => { 
     Object.assign(userInput, req.body);
     getValidate(userInput.userInput, country.countryName, country.alternativCountryName);
 
 });
 
-
+//consolen übergabe des Ports
 app.listen(3000, () => {
     console.log('Port 3000!')
 

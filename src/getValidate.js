@@ -1,5 +1,6 @@
 module.exports = {getValidate}
 
+//funktion zur überprüfung auf richtiger der Spielereingabe
 function getValidate(userInput, countryName, countryNameAlternativ) {
     if (userInput == countryName || userInput == countryNameAlternativ) {
         return console.log("UserEingabe:" + userInput + " ist das gleiche wie " + countryName)

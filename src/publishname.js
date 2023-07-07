@@ -2,7 +2,7 @@ const lobbyList = document.getElementById('lobbyList');
 
 getNameList()
 
-
+//function zum erhalten der Spieler die sich in der Lobby befinden
 function getNameList() {
     fetch('/publishName', {
         method: 'GET'

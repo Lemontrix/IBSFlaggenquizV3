@@ -1,5 +1,7 @@
 module.exports = {randomFlag}
 
+//function um flagge aus der "hardcode Datenbank" mit pfad des bildes und name zu erhalten
+
 function randomFlag(randomID) {
     switch (randomID) {
         case 0:
@@ -209,7 +211,7 @@ function randomFlag(randomID) {
         case 34:
             countryName = 'Belarus'
             path = (__dirname + '/Images/by.png');
-            countryNameAlternativ = null
+            countryNameAlternativ = 'Weißrussland'
             break;
 
         case 35:
@@ -1464,6 +1466,7 @@ function randomFlag(randomID) {
 
     }
 
+    //rückgabe als json mit Pfad, name und dem alternativen name des landes
     const country = { path: path, countryName: countryName, alternativCountryName: countryNameAlternativ }
     return country
 }

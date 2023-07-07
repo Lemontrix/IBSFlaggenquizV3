@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+//funktion zum übergeben des Spielernahmens an backend und wechsel zur Lobby.html
 function joinLobby(name) {
   fetch('/join-lobby', {
     method: 'POST',

@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+//function zum senden des Spielertipps
 function sendUserInput(userInput) {
     fetch('/userInput', {
         method: 'POST',
