@@ -63,3 +63,12 @@ tr:nth-child(even) {
     height: 2px;
     padding: 0;
 }
+
+#zuruckbutton {
+    background-color: gold;
+    font-size: x-large;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
