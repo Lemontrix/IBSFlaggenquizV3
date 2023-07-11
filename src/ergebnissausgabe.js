@@ -1,3 +1,3 @@
 function ergebniss(){
-    window.open("resultreview.html");
+    window.location.href = "resultreview.html"
 }

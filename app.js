@@ -56,6 +56,14 @@ app.get('/flags.js', (req, res) => res.sendFile(__dirname + '/src/flags.js'));
 
 app.get('/getvalidate.js', (req, res) => res.sendFile(__dirname + '/getvalidate.js'));
 
+app.get('/resultscreen.html', (req, res) => res.sendFile(__dirname + '/src/resultscreen.html'));
+
+app.get('/ergebnissausgabe.js', (req, res) => res.sendFile(__dirname + '/src/ergebnissausgabe.js'));
+
+app.get('/resultscreen.css', (req, res) => res.sendFile(__dirname + '/src/resultscreen.css'));
+
+app.get('/resultreview.html', (req, res) => res.sendFile(__dirname + '/src/resultreview.html'));
+
 //Endpunkt zum eigentlichen Flaggenquiz
 app.get('/apiImage', (req, res) => {
 

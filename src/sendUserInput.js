@@ -19,6 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
         sendUserInput(userInput.value);
         counter++;
         document.getElementById('counter').innerText=counter+"/15";
+
+        if(counter > 15){
+            window.location.href = "resultscreen.html"
+        }
     });
 });
 
