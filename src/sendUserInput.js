@@ -12,9 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     });
+ //counter ist hier drunter on Button click getriggert.
+    let counter=1;
 
     okButton.addEventListener('click', () => {
         sendUserInput(userInput.value);
+        counter++;
+        document.getElementById('counter').innerText=counter+"/15";
     });
 });
 
@@ -32,9 +36,9 @@ function showFlag() {
 }
 
 function resizeIframe(obj) {
-    
+    obj.style.height =0;
     obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-    
+    obj.style.width =0;
     obj.style.width = obj.contentWindow.document.body.scrollWidth + 'px';
 }
 
