@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const mqtt = require('mqtt')
 const mqttClient = mqtt.connect('wss://test.mosquitto.org:8081');
-const flags = require('./flags.js')
+const flags = require('./src/flags.js')
 
 // zufallsvariable zur bestimmung der zufälligen Flagge
 var randomID = null;
@@ -52,7 +52,7 @@ app.get('/senduserinput.js', (req, res) => res.sendFile(__dirname + '/src/sendus
 
 app.get('/publishname.js', (req, res) => res.sendFile(__dirname + '/src/publishname.js'));
 
-app.get('/flags.js', (req, res) => res.sendFile(__dirname + '/flags.js'));
+app.get('/flags.js', (req, res) => res.sendFile(__dirname + '/src/flags.js'));
 
 app.get('/getvalidate.js', (req, res) => res.sendFile(__dirname + '/getvalidate.js'));
 
@@ -61,15 +61,15 @@ app.get('/apiImage', (req, res) => {
 
     randomID = Math.floor(Math.random() * 242);
     country = flags.randomFlag(randomID);
-    res.sendFile(country.path);
+    res.send(country.path);
 
 });
 
 //Endpunkt zum absenden & überprüfen der vom Spieler getippten Flagge
-app.post('/userInput', (req, res) => { 
+app.post('/userInput', (req, res) => {
     Object.assign(userInput, req.body);
     getValidate(userInput.userInput, country.countryName, country.alternativCountryName);
-
+    res.status(200).send()
 });
 
 //consolen übergabe des Ports
