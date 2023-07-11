@@ -61,5 +61,22 @@ function sendUserInput(userInput) {
 }
 
 
-
+            var timerElement = document.getElementById("timer");
+            var totalTimeInSeconds = 0;
+        
+            function updateTimer() {
+              var minutes = Math.floor(totalTimeInSeconds / 60);
+              var seconds = totalTimeInSeconds % 60;
+        
+              var formattedTime = formatTime(minutes) + ":" + formatTime(seconds);
+              timerElement.textContent = formattedTime;
+        
+              totalTimeInSeconds++;
+            }
+        
+            function formatTime(time) {
+              return time < 10 ? "0" + time : time;
+            }
+        
+            setInterval(updateTimer, 1000);
 

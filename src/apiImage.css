@@ -48,6 +48,13 @@ iframe {
     text-align: center;
     font-size:xx-large;
 }
+.timebox p {
+    margin: 0;
+    top: 10px; 
+    right: 10px;
+    font-size: xx-large;
+  }
+
 
 #zuruckbutton {
     background-color: gold;
