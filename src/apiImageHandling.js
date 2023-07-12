@@ -57,7 +57,9 @@ function sendUserInput(userInput) {
     })
         .then(response => {
             showFlag()
+            document.getElementById('userInput').value = '';
         });
+        
 }
 
 var timerElement = document.getElementById("timer");
