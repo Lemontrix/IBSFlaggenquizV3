@@ -2,9 +2,12 @@
 <html>
 
 <head>
+    <!-- mqttserver Verlinkung-->
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
     <title>IBS-Projekt</title>
+    <!-- JS Verlinkung-->
     <script type="text/javascript"></script>
+    <!-- CSS Verlinkung-->
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -13,6 +16,7 @@
     <div id="top">
         <div id="logo">IBS</div>
         <div id="logo-name">Flaggenquiz 2023</div>
+        <!-- Impressums Knopf und Guide Bild hinzugefügt-->
         <a href="/src/impressum.html" id="logo2">Impressum</a> 
         <a href="/src/anleitung.html" id="logo3"><img src="/src/guide.png"> </a>
     </div>
@@ -20,14 +24,16 @@
         <div id="lobby">
             <h1>Namen hier eingegeben</h1>
             <div>
+                <!-- Textfeld zur eingabe-->
                 <label for="nameInput">Name:</label>
                 <input type="text" id="nameInput">
+                <!-- Button zum abschicken-->
                 <button id="joinButton">Join Lobby</button>
                 <br><br><br>
             </div>
         </div>
     </div>
-
+    <!-- JS Verlinkungen-->
     <script src="join.js"></script>
     <script src="mqtt.js"></script>
 </body>

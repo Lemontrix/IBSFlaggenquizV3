@@ -21,10 +21,10 @@
       margin: 50px auto;
       width: 400px;
       padding: 20px;
-      background-color: rgba(255, 223, 0, 0.9); /* Goldenes Rechteck mit Transparenz */
-      border: 2px solid black; /* Schwarzer Rand */
-      position: relative; /* Positionierung für den Button */
-      z-index: 2; /* Stellenwert erhöhen, um über dem Button zu sein */
+      background-color: rgba(255, 223, 0, 0.9); /* Goldene Hintergrundfarbe mit Transparenz */
+      border: 2px solid black; /* schwarzer Rand */
+      position: relative; /* Button position */
+      z-index: 2; 
     }
     
     #players {
@@ -34,7 +34,7 @@
 
     #play-button {
       position: absolute;
-      bottom: -90px; /* 50 Pixel über dem unteren Rand der Lobby */
+      bottom: -90px; /* -90 weil 50 Pixel über dem unteren Rand der Lobby */
       left: 50%;
       transform: translateX(-50%);
       font-size: 24px;
@@ -50,22 +50,18 @@
 <body>
   <div id="lobby">
     <h1>Lobby</h1>
-    
+    <!-- Spieler Liste über ein Script wird hier reingeladen-->
     <div id="players">
       <div class="lobby">
         <h2>Spieler:</h2>
         <p id="lobbyList"></p>
       </div>
-      
-      <!-- Spielerliste hier einfügen -->
-    
-
-
     </div>
-    
+    <!-- Spielenbutton der einem zur ApiImage führt aka das Spiel selbst-->
     <a href="/src/apiImage.html" id="play-button">Spielen</a>
   </div>
 </body>
+<!-- JS Verlinkungen-->
 <script src="publishname.js"></script>
 <script src="mqtt.js"></script>
 </html>
