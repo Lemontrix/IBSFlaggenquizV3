@@ -48,7 +48,7 @@ app.get('/mqtt.js', (req, res) => res.sendFile(__dirname + '/src/mqtt.js'));
 
 app.get('/lobby.html', (req, res) => res.sendFile(__dirname + '/src/lobby.html'));
 
-app.get('/senduserinput.js', (req, res) => res.sendFile(__dirname + '/src/senduserinput.js'));
+app.get('/apiimagehandling.js', (req, res) => res.sendFile(__dirname + '/src/apiimagehandling.js'));
 
 app.get('/publishname.js', (req, res) => res.sendFile(__dirname + '/src/publishname.js'));
 
