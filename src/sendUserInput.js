@@ -60,8 +60,7 @@ function sendUserInput(userInput) {
         });
 }
 
-
-            var timerElement = document.getElementById("timer");
+var timerElement = document.getElementById("timer");
             var totalTimeInSeconds = 0;
         
             function updateTimer() {
@@ -79,4 +78,6 @@ function sendUserInput(userInput) {
             }
         
             setInterval(updateTimer, 1000);
+
+
 

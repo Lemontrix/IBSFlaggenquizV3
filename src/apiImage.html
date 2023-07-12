@@ -4,7 +4,7 @@
 <head>
     <title>Flaggenseite</title>
     <link rel="stylesheet" href="apiImage.css">
-    <script src="sendUserInput.js"></script>
+   
 </head>
 
 <body>
@@ -31,29 +31,9 @@
     </div>
     <div class="timebox">
         <p id="timer">00:00</p>
-        <script>
-            var timerElement = document.getElementById("timer");
-            var totalTimeInSeconds = 0;
-        
-            function updateTimer() {
-              var minutes = Math.floor(totalTimeInSeconds / 60);
-              var seconds = totalTimeInSeconds % 60;
-        
-              var formattedTime = formatTime(minutes) + ":" + formatTime(seconds);
-              timerElement.textContent = formattedTime;
-        
-              totalTimeInSeconds++;
-            }
-        
-            function formatTime(time) {
-              return time < 10 ? "0" + time : time;
-            }
-        
-            setInterval(updateTimer, 1000);
-          </script>
     </div>
     
-   
+    <script src="sendUserInput.js"></script>
 </body>
 
 </html>
