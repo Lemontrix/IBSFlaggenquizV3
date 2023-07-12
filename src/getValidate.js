@@ -1,11 +1,18 @@
-module.exports = {getValidate}
+module.exports = { getValidate }
+var userTipps = []
+var correctAnswer = []
+const pountCounter = 0;
+
 
 //funktion zur überprüfung auf richtiger der Spielereingabe
 function getValidate(userInput, countryName, countryNameAlternativ) {
+    userTipps.push(userInput)
+    correctAnswer.push(countryName)
     if (userInput == countryName || userInput == countryNameAlternativ) {
-        return console.log("UserEingabe:" + userInput + " ist das gleiche wie " + countryName)
+        return userTipps, correctAnswer
     }
     else {
-        return console.log("UserEingabe:" + userInput + " ist nicht das gleiche wie " + countryName)
+        return userTipps, correctAnswer
+
     }
 }
