@@ -3,6 +3,9 @@ const app = express();
 const mqtt = require('mqtt')
 const mqttClient = mqtt.connect('wss://test.mosquitto.org:8081');
 const flags = require('./src/flags.js')
+var userTipps = [];
+var correctAnswer = [];
+var pointCounter = 0;
 
 // zufallsvariable zur bestimmung der zufälligen Flagge
 var randomID = null;
@@ -76,8 +79,14 @@ app.get('/apiImage', (req, res) => {
 //Endpunkt zum absenden & überprüfen der vom Spieler getippten Flagge
 app.post('/userInput', (req, res) => {
     Object.assign(userInput, req.body);
-    getValidate(userInput.userInput, country.countryName, country.alternativCountryName);
+    if(getValidate(userInput.userInput, country.countryName, country.alternativCountryName) == 1){
+        pointCounter++
+    }
     res.status(200).send()
+    userTipps.push(userInput.userInput);
+    correctAnswer.push(country.countryName);
+    console.log(userTipps, correctAnswer, "Punkte:" + pointCounter);
+    
 });
 
 //consolen übergabe des Ports

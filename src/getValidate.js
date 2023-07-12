@@ -1,18 +1,17 @@
 module.exports = { getValidate }
-var userTipps = []
-var correctAnswer = []
-const pountCounter = 0;
+var pointCounter = 0;
+
+
 
 
 //funktion zur überprüfung auf richtiger der Spielereingabe
 function getValidate(userInput, countryName, countryNameAlternativ) {
-    userTipps.push(userInput)
-    correctAnswer.push(countryName)
     if (userInput == countryName || userInput == countryNameAlternativ) {
-        return userTipps, correctAnswer
+        return 1;
+
     }
     else {
-        return userTipps, correctAnswer
+        return 0;
 
     }
 }
