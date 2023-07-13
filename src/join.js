@@ -9,9 +9,9 @@ joinButton.addEventListener('click', () => {
 function checkNameAvailability(name) {
   getNameList()
     .then(names => {
-      if (names.includes(name)) {
+      if (names.includes(name) || name == '') {
         // Name existiert bereits
-        alert('Der Name wird bereits verwendet. Bitte wähle einen anderen Namen.');
+        alert('Es wurde kein Name eingegeben oder der eingegebene Name wird bereits verwendet. Bitte wähle einen anderen Namen.');
       } else {
         // Name ist verfügbar
         joinLobby(name);

@@ -78,6 +78,8 @@ app.post('/apiImage', (req, res) => {
         for (let it = 0; it < 15; it++) {
             randomID = Math.floor(Math.random() * 242);
             flaglist.push(randomID);
+            country = (flags.randomFlag(randomID));
+            correctAnswer.push(country.countryName);
         }
     }
     let counter = req.query.counter;
@@ -92,15 +94,16 @@ app.post('/userInput', (req, res) => {
     userInput = userEingaben.userInput
     name = userEingaben.name
     res.status(200).send()
-    
+
     if (getValidate(userInput, country.countryName, country.alternativCountryName) == 1) {
         correct = true;
     } else {
         correct = false;
     }
-    userTipps.push({UserInput: userInput, Name: name, Correct: correct});
-    console.log(userTipps)
+    userTipps.push({ UserInput: userInput, Name: name, Correct: correct });
 
+    console.log(userTipps)
+});
 // Endpunkt zum Abrufen der Namen der Spieler in der Lobby
 app.get('/get-lobby-names', (req, res) => {
     res.json({ names: lobby });
