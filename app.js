@@ -50,6 +50,8 @@ app.get('/join.js', (req, res) => res.sendFile(__dirname + '/src/join.js'));
 
 app.get('/mqtt.js', (req, res) => res.sendFile(__dirname + '/src/mqtt.js'));
 
+app.get('/gamejoin.js', (req, res) => res.sendFile(__dirname + '/src/gamejoin.js'));
+
 app.get('/lobby.html', (req, res) => res.sendFile(__dirname + '/src/lobby.html'));
 
 app.get('/apiimagehandling.js', (req, res) => res.sendFile(__dirname + '/src/apiimagehandling.js'));
@@ -68,6 +70,7 @@ app.get('/resultscreen.css', (req, res) => res.sendFile(__dirname + '/src/result
 
 app.get('/resultreview.html', (req, res) => res.sendFile(__dirname + '/src/resultreview.html'));
 
+
 //Endpunkt zum eigentlichen Flaggenquiz
 app.post('/apiImage', (req, res) => {
 
@@ -79,10 +82,7 @@ app.post('/apiImage', (req, res) => {
         }
     }
     let counter = req.query.counter;
-    console.log(flaglist)
-    console.log(flaglist[counter - 1]);
     country = flags.randomFlag(flaglist[counter - 1]);
-    console.log(country);
     res.send(country.path);
 
 });

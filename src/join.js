@@ -21,7 +21,7 @@ function joinLobby(name) {
   })
     .then(response => response.json())
     .then(data => {
-      window.location.href = "/lobby.html"
+      window.location.href = "/lobby.html#" + name;
     });
 
 }
