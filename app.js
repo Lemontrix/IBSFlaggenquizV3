@@ -50,8 +50,6 @@ app.get('/join.js', (req, res) => res.sendFile(__dirname + '/src/join.js'));
 
 app.get('/mqtt.js', (req, res) => res.sendFile(__dirname + '/src/mqtt.js'));
 
-app.get('/gamejoin.js', (req, res) => res.sendFile(__dirname + '/src/gamejoin.js'));
-
 app.get('/lobby.html', (req, res) => res.sendFile(__dirname + '/src/lobby.html'));
 
 app.get('/apiimagehandling.js', (req, res) => res.sendFile(__dirname + '/src/apiimagehandling.js'));
@@ -69,6 +67,8 @@ app.get('/ergebnissausgabe.js', (req, res) => res.sendFile(__dirname + '/src/erg
 app.get('/resultscreen.css', (req, res) => res.sendFile(__dirname + '/src/resultscreen.css'));
 
 app.get('/resultreview.html', (req, res) => res.sendFile(__dirname + '/src/resultreview.html'));
+
+app.get('/gamejoin.js', (req, res) => res.sendFile(__dirname + '/src/gamejoin.js'));
 
 
 //Endpunkt zum eigentlichen Flaggenquiz

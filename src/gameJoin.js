@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     playButton.addEventListener('click', () => {
-        window.location.href = "/apiImage.html#" + name;
+        window.location.href = "/src/apiImage.html#" + name;
     });
 
 });
