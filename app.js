@@ -6,6 +6,7 @@ const flags = require('./src/flags.js')
 var userTipps = [];
 var correctAnswer = [];
 var pointCounter = 0;
+let flaglist = [];
 
 // zufallsvariable zur bestimmung der zufälligen Flagge
 var randomID = null;
@@ -68,10 +69,20 @@ app.get('/resultscreen.css', (req, res) => res.sendFile(__dirname + '/src/result
 app.get('/resultreview.html', (req, res) => res.sendFile(__dirname + '/src/resultreview.html'));
 
 //Endpunkt zum eigentlichen Flaggenquiz
-app.get('/apiImage', (req, res) => {
+app.post('/apiImage', (req, res) => {
 
-    randomID = Math.floor(Math.random() * 242);
-    country = flags.randomFlag(randomID);
+    if (flaglist.length == 0) {
+        for (let it = 0; it < 15; it++) {
+            randomID = Math.floor(Math.random() * 242);
+            flaglist.push(randomID);
+
+        }
+    }
+    let counter = req.body;
+    console.log(req.body)
+    console.log(counter);
+    country = flags.randomFlag(flaglist.values(counter - 1));
+    console.log(country);
     res.send(country.path);
 
 });
@@ -79,14 +90,14 @@ app.get('/apiImage', (req, res) => {
 //Endpunkt zum absenden & überprüfen der vom Spieler getippten Flagge
 app.post('/userInput', (req, res) => {
     Object.assign(userInput, req.body);
-    if(getValidate(userInput.userInput, country.countryName, country.alternativCountryName) == 1){
+    if (getValidate(userInput.userInput, country.countryName, country.alternativCountryName) == 1) {
         pointCounter++
     }
     res.status(200).send()
     userTipps.push(userInput.userInput);
     correctAnswer.push(country.countryName);
     console.log(userTipps, correctAnswer, "Punkte:" + pointCounter);
-    
+
 });
 
 //consolen übergabe des Ports

@@ -1,5 +1,4 @@
 module.exports = { getValidate }
-var pointCounter = 0;
 
 
 
