@@ -78,10 +78,10 @@ app.post('/apiImage', (req, res) => {
 
         }
     }
-    let counter = req.body;
-    console.log(req.body)
-    console.log(counter);
-    country = flags.randomFlag(flaglist.values(counter - 1));
+    let counter = req.query.counter;
+    console.log(flaglist)
+    console.log(flaglist[counter - 1]);
+    country = flags.randomFlag(flaglist[counter - 1]);
     console.log(country);
     res.send(country.path);
 

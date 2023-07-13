@@ -30,12 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function showFlag() {
     const flag = document.getElementById('flag');
-    fetch('/apiImage', {
+    fetch('/apiImage?counter=' + counter, {
         method: 'POST',
         headers: {
             'Content-Type': 'text/plain'
-        },
-        body: counter
+        }
     })
         .then(response => response.text())
         .then(data => {
