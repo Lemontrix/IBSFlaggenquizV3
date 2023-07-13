@@ -5,8 +5,8 @@ const mqttClient = mqtt.connect('wss://test.mosquitto.org:8081');
 const flags = require('./src/flags.js')
 var userTipps = [];
 var correctAnswer = [];
-var pointCounter = 0;
 let flaglist = [];
+var userEingaben = null;
 
 // zufallsvariable zur bestimmung der zufälligen Flagge
 var randomID = null;
@@ -14,8 +14,10 @@ var randomID = null;
 // json mit name des landes, alternativ name des lades(falls vorhanden) und filepath
 var country = null;
 
-// flaggen schätzung des nutzers
-var userInput = {};
+// flaggen schätzung des nutzers und name des benutzers
+var userInput = null;
+var name = null;
+var correct = null;
 
 const bodyParser = require('body-parser');
 
@@ -89,14 +91,19 @@ app.post('/apiImage', (req, res) => {
 
 //Endpunkt zum absenden & überprüfen der vom Spieler getippten Flagge
 app.post('/userInput', (req, res) => {
-    Object.assign(userInput, req.body);
-    if (getValidate(userInput.userInput, country.countryName, country.alternativCountryName) == 1) {
-        pointCounter++
-    }
+
+    userEingaben = req.body;
+    userInput = userEingaben.userInput
+    name = userEingaben.name
     res.status(200).send()
-    userTipps.push(userInput.userInput);
-    correctAnswer.push(country.countryName);
-    console.log(userTipps, correctAnswer, "Punkte:" + pointCounter);
+    
+    if (getValidate(userInput, country.countryName, country.alternativCountryName) == 1) {
+        correct = true;
+    } else {
+        correct = false;
+    }
+    userTipps.push({UserInput: userInput, Name: name, Correct: correct});
+    console.log(userTipps)
 
 });
 

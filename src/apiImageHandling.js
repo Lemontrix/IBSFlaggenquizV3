@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const userInput = document.getElementById("userInput");
 
 
+
+
+
     showFlag();
 
 
@@ -16,7 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     okButton.addEventListener('click', () => {
-        sendUserInput(userInput.value);
+        const hash = window.location.hash;
+        const cleanhash = hash.slice(1);
+        const name = cleanhash;
+        const eingabeUndName = { userInput: userInput.value, name: name }
+
+        sendUserInput(eingabeUndName);
         counter++;
         document.getElementById('counter').innerText = counter + "/15";
 
@@ -25,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-    //counter ist hier drunter on Button click getriggert.
-    let counter = 1;
+//counter ist hier drunter on Button click getriggert.
+let counter = 1;
 
 function showFlag() {
     const flag = document.getElementById('flag');
@@ -41,7 +49,7 @@ function showFlag() {
             flag.src = data;
         });
 }
-
+// anpassung des iframes an die Größer der Flagge
 function resizeIframe(obj) {
     obj.style.height = 0;
     obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
@@ -50,16 +58,19 @@ function resizeIframe(obj) {
 }
 
 //function zum senden des Spielertipps
-function sendUserInput(userInput) {
+function sendUserInput(eingabeUndName) {
     fetch('/userInput', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ userInput })
+        body: JSON.stringify(eingabeUndName)
     })
         .then(response => {
+
             showFlag()
+
+            //userInput im Frontend leeren
             document.getElementById('userInput').value = '';
         });
 
