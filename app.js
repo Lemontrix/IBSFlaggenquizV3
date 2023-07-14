@@ -64,7 +64,7 @@ app.get('/getvalidate.js', (req, res) => res.sendFile(__dirname + '/getvalidate.
 
 app.get('/resultscreen.html', (req, res) => res.sendFile(__dirname + '/src/resultscreen.html'));
 
-app.get('/ergebnissausgabe.js', (req, res) => res.sendFile(__dirname + '/src/ergebnissausgabe.js'));
+app.get('/resultscreen.js', (req, res) => res.sendFile(__dirname + '/src/resultscreen.js'));
 
 app.get('/resultscreen.css', (req, res) => res.sendFile(__dirname + '/src/resultscreen.css'));
 
