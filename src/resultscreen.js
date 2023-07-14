@@ -1,9 +1,17 @@
 const tabelle = document.getElementById("resultTable");
 const tbody = tabelle.querySelector("tbody");
 var userTipps = [];
-var formattedTime = 0;
+const hash = window.location.hash;
+const cleanhash = hash.slice(1);
+const userName = cleanhash;
+var correct = 0;
+let correctAnswers = 0;
+
 getResultScreenUserInput();
-getResultScreenTime();
+correct = getPoints(userTipps, userName);
+console.log(correct);
+console.log(userTipps);
+
 
 
 // User-Array / Time
@@ -12,24 +20,32 @@ const daten = [
   { spieler: "Anna", punkte: 50, zeit: "2:00" },
 ];
 
+const test = [
+  { UserInput: "Deutschland", Name: "Evo", Correct: "correct" },
+  { UserInput: "KA", Name: "Evo", Correct: "false" },
+  { UserInput: "KA", Name: "Lemon", Correct: "correct" }
+]
+
+
 function getResultScreenUserInput() {
   fetch('/getResultScreenUserInput', {
     method: 'GET'
   })
     .then(response => response.json())
     .then(data => {
-      console.log(data)
+      userTipps.push(data);
     });
 }
 
-function getResultScreenTime() {
-  fetch('/getResultScreenTime', {
-    method: 'GET'
-  })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-    });
+function getPoints(userTipps, userName) {
+
+  for (let i = 0; i < userTipps.length; i++) {
+    if (userTipps[i].Name == userName && userTipps[i].Correct == "correct") {
+      correctAnswers++;
+    }
+  }
+
+  return correctAnswers;
 }
 
 

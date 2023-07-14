@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (counter > 15) {
             let endzeit=totalTimeInSeconds;
             sendendzeit(endzeit); //senden der ENDZEIT beim Seitenwechsel
-            window.location.href = "resultscreen.html"
+            window.location.href = "resultscreen.html#" + name;
         }
     });
 });
