@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const okButton = document.getElementById('okButton');
     const userInput = document.getElementById("userInput");
-    const hash = window.location.hash;
-    const cleanhash = hash.slice(1);
-    const name = cleanhash;
+
 
 
 

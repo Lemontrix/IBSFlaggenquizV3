@@ -1,6 +1,6 @@
 const tabelle = document.getElementById("resultTable");
 const tbody = tabelle.querySelector("tbody");
-var userTipps = [];
+var userTipps = null;
 const hash = window.location.hash;
 const cleanhash = hash.slice(1);
 const userName = cleanhash;
@@ -8,9 +8,6 @@ var correct = 0;
 let correctAnswers = 0;
 
 getResultScreenUserInput();
-correct = getPoints(userTipps, userName);
-console.log(correct);
-console.log(userTipps);
 
 
 
@@ -21,9 +18,9 @@ const daten = [
 ];
 
 const test = [
-  { UserInput: "Deutschland", Name: "Evo", Correct: "correct" },
+  { UserInput: "Deutschland", Name: "Evo", Correct: "true" },
   { UserInput: "KA", Name: "Evo", Correct: "false" },
-  { UserInput: "KA", Name: "Lemon", Correct: "correct" }
+  { UserInput: "KA", Name: "Lemon", Correct: "true" }
 ]
 
 
@@ -33,14 +30,17 @@ function getResultScreenUserInput() {
   })
     .then(response => response.json())
     .then(data => {
-      userTipps.push(data);
+      userTipps = data;
+      correct = getPoints(userTipps, userName);
+      console.log(correct);
+      console.log(userTipps);
+
     });
 }
 
 function getPoints(userTipps, userName) {
-
   for (let i = 0; i < userTipps.length; i++) {
-    if (userTipps[i].Name == userName && userTipps[i].Correct == "correct") {
+    if (userTipps[i].Name === userName && userTipps[i].Correct === "true") {
       correctAnswers++;
     }
   }
