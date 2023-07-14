@@ -9,6 +9,7 @@ mqttClient.on('error', (error) => {
 });
 
 mqttClient.subscribe('lobby');
+mqttClient.subscribe('ergebnis')
 
 //mqtt übergabe des begetretenen Spielers an alle Clients
 mqttClient.on('message', (topic, message) => {
@@ -23,4 +24,3 @@ mqttClient.on('message', (topic, message) => {
         });
     }
 });
-

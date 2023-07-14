@@ -94,10 +94,10 @@ app.post('/sendendzeit', (req, res) => {
     var minutes = Math.floor(endzeit / 60);
     var seconds = endzeit % 60;
     var formattedTime = formatTime(minutes) + ":" + formatTime(seconds);
-    console.log(formattedTime+ " hat der Kelb gebraucht");
-  });
-  
-  function formatTime(time) {
+    console.log(formattedTime + " hat der Kelb gebraucht");
+});
+
+function formatTime(time) {
     return time < 10 ? "0" + time : time;
 }
 
@@ -121,13 +121,21 @@ app.post('/userInput', (req, res) => {
 app.get('/get-lobby-names', (req, res) => {
     res.json({ names: lobby });
 });
-
+// Endpunkt um UserEingabe ins Frontend zu versenden
 app.get('/getResultScreenUserInput', (req, res) => {
     res.send(userTipps);
 });
-
+//endpunkt um die Zeit ins Frontend zu versenden
 app.get('/getResultScreenTime', (req, res) => {
     res.json(endzeit);
+});
+
+app.post('/mqttErgebnis', (req, res) => {
+    const  mqttErgebnis  = []
+    mqttErgebnis.push(req.body);
+    console.log(mqttErgebnis)
+    //mqttClient.publish('ergebnis', JSON.stringify(mqttErgebnis));
+    res.status(200).send();
 });
 
 

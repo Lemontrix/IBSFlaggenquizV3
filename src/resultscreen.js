@@ -21,7 +21,6 @@ function getResultScreenUserInput() {
     .then(data => {
       userTipps = data;
       var length = userTipps.length;
-
       if (userTipps[length - 1].Name == userName) {
         const tr = document.createElement("tr");
 
@@ -52,6 +51,7 @@ function getResultScreenUserInput() {
         tr.appendChild(zeitCell);
 
         tbody.appendChild(tr);
+        mqttErgebnisPost(userName, punkte, formattedTime);
       }
 
     });
@@ -68,7 +68,7 @@ function getResultScreenTime() {
       var minutes = Math.floor(endzeit / 60);
       var seconds = endzeit % 60;
       formattedTime = formatTime(minutes) + ":" + formatTime(seconds);
-      
+
 
     });
 }
@@ -85,4 +85,24 @@ function getPoints(userTipps, userName) {
     }
   }
   return correctAnswers;
+}
+
+
+function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
+  var mqttErgebnis = { UserName: userName, CorrectAnswer: correctAnswer, FormattedTime: formattedTime }
+  console.log(mqttErgebnis);
+
+  fetch('/mqttErgebnis', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ mqttErgebnis })
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+
+
 }
