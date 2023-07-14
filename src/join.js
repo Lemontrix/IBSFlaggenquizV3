@@ -9,9 +9,25 @@ joinButton.addEventListener('click', () => {
 function checkNameAvailability(name) {
   getNameList()
     .then(names => {
-      if (names.includes(name) || name == '') {
+      console.log(/\s/.test(name));
+      if (names.includes(name) ||name == '' ||Object.keys(names).length==2 || name.trim()!=name || name.includes("?") ||name.includes("#") || /\s/.test(name)) {
         // Name existiert bereits
-        alert('Es wurde kein Name eingegeben oder der eingegebene Name wird bereits verwendet. Bitte wähle einen anderen Namen.');
+
+        if(Object.keys(names).length==2){
+          alert('Maximale Spieleranzahl ist erreich!!!');
+        }
+        else if(names.includes(name)){
+          alert('Der eingegebene Name wird bereits verwendet. Bitte wähle einen anderen Namen.');
+        }
+        else if(/\s/.test(name) || name.trim()!=name){
+          alert('Keine Whitespaces gestattet. Bitte schön Herr Bantel wir wissen sie mögen die nicht so.');
+        }
+        else if(name.includes("?") || name.includes("#")){
+          alert('Kein ? oder # gestattet');
+        }
+        else if(name == ''){
+          alert('Ein Leeres Feld wird nicht akzeptiert');
+        }
       } else {
         // Name ist verfügbar
         joinLobby(name);
