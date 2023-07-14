@@ -1,12 +1,40 @@
 const tabelle = document.getElementById("resultTable");
 const tbody = tabelle.querySelector("tbody");
+var userTipps = [];
+var formattedTime = 0;
+getResultScreenUserInput();
+getResultScreenTime();
 
-// Beispiel-Daten
+
+// User-Array / Time
 const daten = [
   { spieler: "Peter", punkte: 100, zeit: "1:30" },
   { spieler: "Anna", punkte: 50, zeit: "2:00" },
-  { spieler: "Max", punkte: 75, zeit: "1:45" }
 ];
+
+function getResultScreenUserInput() {
+  fetch('/getResultScreenUserInput', {
+    method: 'GET'
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    });
+}
+
+function getResultScreenTime() {
+  fetch('/getResultScreenTime', {
+    method: 'GET'
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    });
+}
+
+
+
+
 
 // Elemente zur Tabelle hinzufügen
 daten.forEach((eintrag) => {
@@ -33,6 +61,6 @@ daten.forEach((eintrag) => {
   tbody.appendChild(tr);
 });
 
-function ergebniss(){
-    window.location.href = "resultreview.html"
+function ergebniss() {
+  window.location.href = "resultreview.html"
 }

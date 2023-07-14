@@ -7,6 +7,7 @@ var userTipps = [];
 var correctAnswer = [];
 let flaglist = [];
 var userEingaben = null;
+var endzeit = null;
 
 // zufallsvariable zur bestimmung der zufälligen Flagge
 var randomID = null;
@@ -89,7 +90,7 @@ app.post('/apiImage', (req, res) => {
 
 //backend für die Zeit die der user gebruacht hat //TODOOOOOOOO
 app.post('/sendendzeit', (req, res) => {
-    const endzeit = req.body.endzeit;
+    endzeit = req.body.endzeit;
     var minutes = Math.floor(endzeit / 60);
     var seconds = endzeit % 60;
     var formattedTime = formatTime(minutes) + ":" + formatTime(seconds);
@@ -115,12 +116,20 @@ app.post('/userInput', (req, res) => {
     }
     userTipps.push({ UserInput: userInput, Name: name, Correct: correct });
 
-    console.log(userTipps)
 });
 // Endpunkt zum Abrufen der Namen der Spieler in der Lobby
 app.get('/get-lobby-names', (req, res) => {
     res.json({ names: lobby });
 });
+
+app.get('/getResultScreenUserInput', (req, res) => {
+    res.send(userTipps);
+});
+
+app.get('/getResultScreenTime', (req, res) => {
+    res.send(endzeit.stringify);
+});
+
 
 // Konsolenübergabe des Ports
 app.listen(3000, () => {
