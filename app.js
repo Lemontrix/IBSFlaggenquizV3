@@ -127,7 +127,7 @@ app.get('/getResultScreenUserInput', (req, res) => {
 });
 
 app.get('/getResultScreenTime', (req, res) => {
-    res.send(endzeit.stringify);
+    res.json(endzeit);
 });
 
 
