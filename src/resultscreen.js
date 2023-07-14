@@ -40,11 +40,13 @@ function getResultScreenUserInput() {
 
 function getPoints(userTipps, userName) {
   for (let i = 0; i < userTipps.length; i++) {
-    if (userTipps[i].Name === userName && userTipps[i].Correct === "true") {
+    console.log(userTipps[i].Name == userName)
+    console.log(userTipps[i].Correct == true)
+    if (userTipps[i].Name == userName && userTipps[i].Correct == true) {
       correctAnswers++;
     }
   }
-
+  console.log(correctAnswers);
   return correctAnswers;
 }
 
