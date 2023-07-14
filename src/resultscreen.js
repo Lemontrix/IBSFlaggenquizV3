@@ -8,6 +8,7 @@ var correct = 0;
 let correctAnswers = 0;
 
 getResultScreenUserInput();
+getResultScreenTime();
 
 
 const test = [
@@ -61,6 +62,27 @@ function getResultScreenUserInput() {
 
     });
 }
+
+
+function getResultScreenTime() {
+  fetch('/getResultScreenTIme', {
+    method: 'GET'
+  })
+    .then(response => response.json())
+    .then(data => {
+      endzeit = data;
+      var minutes = Math.floor(endzeit / 60);
+      var seconds = endzeit % 60;
+      var formattedTime = formatTime(minutes) + ":" + formatTime(seconds);
+      console.log(formattedTime+ " hat der Kelb gebraucht");
+
+    });
+}
+
+function formatTime(time) {
+  return time < 10 ? "0" + time : time;
+}
+
 //ließt die richtigen Punkte der Spieler aus
 function getPoints(userTipps, userName) {
   for (let i = 0; i < userTipps.length; i++) {
