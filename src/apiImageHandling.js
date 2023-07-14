@@ -2,10 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const okButton = document.getElementById('okButton');
     const userInput = document.getElementById("userInput");
 
-
-
-
-
     showFlag();
 
 
@@ -15,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     });
-
 
 
     okButton.addEventListener('click', () => {

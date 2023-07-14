@@ -97,12 +97,20 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ mqttErgebnis })
+    body: JSON.stringify(mqttErgebnis)
   })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
     })
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
 
 
 }

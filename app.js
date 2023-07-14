@@ -131,11 +131,9 @@ app.get('/getResultScreenTime', (req, res) => {
 });
 
 app.post('/mqttErgebnis', (req, res) => {
-    const  mqttErgebnis  = []
-    mqttErgebnis.push(req.body);
+    mqttErgebnis = req.body;
     console.log(mqttErgebnis)
     //mqttClient.publish('ergebnis', JSON.stringify(mqttErgebnis));
-    res.status(200).send();
 });
 
 
