@@ -6,16 +6,11 @@ const cleanhash = hash.slice(1);
 const userName = cleanhash;
 var correct = 0;
 let correctAnswers = 0;
+let formattedTime = null;
 
-getResultScreenUserInput();
 getResultScreenTime();
+getResultScreenUserInput();
 
-
-const test = [
-  { UserInput: "Deutschland", Name: "Evo", Correct: "true" },
-  { UserInput: "KA", Name: "Evo", Correct: "false" },
-  { UserInput: "KA", Name: "Lemon", Correct: "true" }
-]
 
 //endpunkt um das User Eingabe Array zu erhalten
 function getResultScreenUserInput() {
@@ -53,8 +48,7 @@ function getResultScreenUserInput() {
 
         // Zeit hinzufügen
         const zeitCell = document.createElement("td");
-        const userTime = "00:30"; // Beispielzeit
-        zeitCell.textContent = userTime;
+        zeitCell.textContent = formattedTime;
         tr.appendChild(zeitCell);
 
         tbody.appendChild(tr);
@@ -73,12 +67,12 @@ function getResultScreenTime() {
       endzeit = data;
       var minutes = Math.floor(endzeit / 60);
       var seconds = endzeit % 60;
-      var formattedTime = formatTime(minutes) + ":" + formatTime(seconds);
-      console.log(formattedTime+ " hat der Kelb gebraucht");
+      formattedTime = formatTime(minutes) + ":" + formatTime(seconds);
+      
 
     });
 }
-
+//formatiert userTime
 function formatTime(time) {
   return time < 10 ? "0" + time : time;
 }
