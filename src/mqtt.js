@@ -24,3 +24,42 @@ mqttClient.on('message', (topic, message) => {
         });
     }
 });
+
+mqttClient.on('message', (topic, message) => {
+    if (topic === 'ergebnis') {
+        var mqttErgebnis = []
+        mqttErgebnis = JSON.parse(message.toString());
+        console.log(mqttErgebnis)
+        const tr = document.createElement("tr");
+
+        // Ergebnis-Button generieren
+        const resultCell = document.createElement("td");
+        const resultButton = document.createElement("button");
+        resultButton.textContent = "Mehr Informationen";
+        resultButton.addEventListener("click", () => {
+          window.location.href = "resultreview.html#" + userName;
+        });
+        resultCell.appendChild(resultButton);
+        tr.appendChild(resultCell);
+
+        // Spielername hinzufügen
+        const spielerCell = document.createElement("td");
+        spielerCell.textContent = userName;
+        tr.appendChild(spielerCell);
+
+        // Punkte hinzufügen
+        const punkteCell = document.createElement("td");
+        const punkte = getPoints(userTipps, userName); // Hier deine Funktion getPoints implementieren
+        punkteCell.textContent = punkte + "/15";
+        tr.appendChild(punkteCell);
+
+        // Zeit hinzufügen
+        const zeitCell = document.createElement("td");
+        zeitCell.textContent = formattedTime;
+        tr.appendChild(zeitCell);
+
+        tbody.appendChild(tr);
+
+
+    }
+});

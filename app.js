@@ -133,7 +133,7 @@ app.get('/getResultScreenTime', (req, res) => {
 app.post('/mqttErgebnis', (req, res) => {
     mqttErgebnis = req.body;
     console.log(mqttErgebnis)
-    //mqttClient.publish('ergebnis', JSON.stringify(mqttErgebnis));
+    mqttClient.publish('ergebnis', JSON.stringify(mqttErgebnis));
 });
 
 

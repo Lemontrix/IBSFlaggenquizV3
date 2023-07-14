@@ -90,7 +90,6 @@ function getPoints(userTipps, userName) {
 
 function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
   var mqttErgebnis = { UserName: userName, CorrectAnswer: correctAnswer, FormattedTime: formattedTime }
-  console.log(mqttErgebnis);
 
   fetch('/mqttErgebnis', {
     method: 'POST',
