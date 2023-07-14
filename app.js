@@ -87,6 +87,19 @@ app.post('/apiImage', (req, res) => {
     res.send(country.path);
 });
 
+//backend für die Zeit die der user gebruacht hat //TODOOOOOOOO
+app.post('/sendendzeit', (req, res) => {
+    const endzeit = req.body.endzeit;
+    var minutes = Math.floor(endzeit / 60);
+    var seconds = endzeit % 60;
+    var formattedTime = formatTime(minutes) + ":" + formatTime(seconds);
+    console.log(formattedTime+ " hat der Kelb gebraucht");
+  });
+  
+  function formatTime(time) {
+    return time < 10 ? "0" + time : time;
+}
+
 // Endpunkt zum Absenden & Überprüfen der vom Spieler getippten Flagge
 app.post('/userInput', (req, res) => {
 

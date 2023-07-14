@@ -31,10 +31,28 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('counter').innerText = counter + "/15";
 
         if (counter > 15) {
+            let endzeit=totalTimeInSeconds;
+            sendendzeit(endzeit); //senden der ENDZEIT beim Seitenwechsel
             window.location.href = "resultscreen.html"
         }
     });
 });
+
+//um dem BACKEND die ENDZEIT zu senden
+function sendendzeit(endzeit) {
+    fetch('/sendendzeit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ endzeit: endzeit })
+    })
+    .then(response => {
+        // Verarbeitung der Antwort des Backends
+    });
+}
+
+
 //counter ist hier drunter on Button click getriggert.
 let counter = 1;
 
