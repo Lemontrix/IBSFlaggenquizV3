@@ -78,7 +78,7 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
         var secoundUserData = data[i];
         var userName2 = secoundUserData.UserName;
         var correctAnswer2 = secoundUserData.CorrectAnswer;
-        var formattedTime2 = secoundUserData.formattedTime;
+        var formattedTime2 = secoundUserData.FormattedTime;
 
         const tr = document.createElement("tr");
 
@@ -105,7 +105,7 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
 
         // Zeit hinzufügen
         const zeitCell = document.createElement("td");
-        console.log(formatTime2)
+        console.log(formattedTime2);
         zeitCell.textContent = formattedTime2;
         tr.appendChild(zeitCell);
 
