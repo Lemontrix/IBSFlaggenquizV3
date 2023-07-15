@@ -21,6 +21,8 @@ function getResultScreenUserInput() {
     .then(data => {
 
       userTipps = data;
+      console.log(data);
+
       mqttErgebnisPost(userName, getPoints(userTipps, userName), formattedTime);
 
     });
@@ -118,5 +120,5 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
     .catch(error => {
       console.error('Error:', error);
     });
-  }
-    
+}
+

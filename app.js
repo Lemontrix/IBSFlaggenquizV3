@@ -139,8 +139,6 @@ app.post('/mqttErgebnis', (req, res) => {
 
     mqttClient.publish('ergebnis', JSON.stringify(req.body));
     res.send(mqttErgebnis);
-    console.log(req.body);
-    console.log(mqttErgebnis);
 });
 
 
