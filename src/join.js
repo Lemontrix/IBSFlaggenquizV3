@@ -9,7 +9,6 @@ joinButton.addEventListener('click', () => {
 function checkNameAvailability(name) {
   getNameList()
     .then(names => {
-      console.log(/\s/.test(name));
       if (names.includes(name) ||name == '' ||Object.keys(names).length==2 || name.trim()!=name || name.includes("?") ||name.includes("#") || /\s/.test(name)) {
         // Name existiert bereits
 

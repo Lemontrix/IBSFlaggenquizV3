@@ -77,8 +77,11 @@ app.get('/gamejoin.js', (req, res) => res.sendFile(__dirname + '/src/gamejoin.js
 app.post('/apiImage', (req, res) => {
     if (flaglist.length == 0) {
         for (let it = 0; it < 15; it++) {
-            randomID = Math.floor(Math.random() * 242);
+            do {
+                randomID = Math.floor(Math.random() * 242);
+            } while (flaglist.includes(randomID));
             flaglist.push(randomID);
+            console.log(flaglist);
             country = (flags.randomFlag(randomID));
             correctAnswer.push(country.countryName);
         }
@@ -88,7 +91,7 @@ app.post('/apiImage', (req, res) => {
     res.send(country.path);
 });
 
-//backend für die Zeit die der user gebruacht hat //TODOOOOOOOO
+//backend für die Zeit die der user gebruacht hat
 app.post('/sendendzeit', (req, res) => {
     endzeit = req.body.endzeit;
     var minutes = Math.floor(endzeit / 60);
@@ -132,7 +135,6 @@ app.get('/getResultScreenTime', (req, res) => {
 
 app.post('/mqttErgebnis', (req, res) => {
     mqttErgebnis = req.body;
-    console.log(mqttErgebnis)
     mqttClient.publish('ergebnis', JSON.stringify(mqttErgebnis));
 });
 

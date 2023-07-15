@@ -18,9 +18,9 @@ mqttClient.on('message', (topic, message) => {
         lobby = JSON.parse(message.toString());
         lobbyList.innerHTML = '';
         lobby.forEach(name => {
-          const player = document.createElement('p');
-          player.textContent = name;
-          lobbyList.appendChild(player);
+            const player = document.createElement('p');
+            player.textContent = name;
+            lobbyList.appendChild(player);
         });
     }
 });
@@ -28,8 +28,15 @@ mqttClient.on('message', (topic, message) => {
 mqttClient.on('message', (topic, message) => {
     if (topic === 'ergebnis') {
         var mqttErgebnis = []
-        mqttErgebnis = JSON.parse(message.toString());
+        mqttErgebnis = JSON.parse(message);
         console.log(mqttErgebnis)
+        var userName = mqttErgebnis.UserName;
+        console.log(userName);
+        correctAnswer = mqttErgebnis.CorrectAnswer;
+        console.log(correctAnswer);
+        var formattedTime = mqttErgebnis.FormattedTime;
+        console.log(formattedTime);
+
         const tr = document.createElement("tr");
 
         // Ergebnis-Button generieren
@@ -37,7 +44,7 @@ mqttClient.on('message', (topic, message) => {
         const resultButton = document.createElement("button");
         resultButton.textContent = "Mehr Informationen";
         resultButton.addEventListener("click", () => {
-          window.location.href = "resultreview.html#" + userName;
+            window.location.href = "resultreview.html#" + userName;
         });
         resultCell.appendChild(resultButton);
         tr.appendChild(resultCell);
@@ -49,8 +56,7 @@ mqttClient.on('message', (topic, message) => {
 
         // Punkte hinzufügen
         const punkteCell = document.createElement("td");
-        const punkte = getPoints(userTipps, userName); // Hier deine Funktion getPoints implementieren
-        punkteCell.textContent = punkte + "/15";
+        punkteCell.textContent = correctAnswer + "/15";
         tr.appendChild(punkteCell);
 
         // Zeit hinzufügen
