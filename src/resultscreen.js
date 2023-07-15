@@ -6,6 +6,8 @@ var correct = 0;
 let correctAnswers = 0;
 let formattedTime = null;
 
+
+
 getResultScreenTime();
 getResultScreenUserInput();
 
@@ -73,7 +75,7 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
       return response.json();
     })
     .then(data => {
-      for (let i = 0; i < data.length; i++) {
+      for (let i = 0; i < 2; i++) {
 
         var secoundUserData = data[i];
         var userName2 = secoundUserData.UserName;
@@ -116,6 +118,5 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
     .catch(error => {
       console.error('Error:', error);
     });
-
-
-}
+  }
+    
