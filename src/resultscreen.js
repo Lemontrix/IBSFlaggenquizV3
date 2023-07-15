@@ -86,16 +86,6 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
 
         const tr = document.createElement("tr");
 
-        // Ergebnis-Button generieren
-        const resultCell = document.createElement("td");
-        const resultButton = document.createElement("button");
-        resultButton.textContent = "Mehr Informationen";
-        resultButton.addEventListener("click", () => {
-          window.location.href = "resultreview.html#" + userName2;
-        });
-        resultCell.appendChild(resultButton);
-        tr.appendChild(resultCell);
-
         // Spielername hinzufügen
         const spielerCell = document.createElement("td");
         spielerCell.textContent = userName2;
