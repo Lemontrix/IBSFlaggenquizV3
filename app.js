@@ -8,6 +8,7 @@ var correctAnswer = [];
 let flaglist = [];
 var userEingaben = null;
 var endzeit = null;
+let mqttErgebnis = []
 
 // zufallsvariable zur bestimmung der zufälligen Flagge
 var randomID = null;
@@ -134,8 +135,12 @@ app.get('/getResultScreenTime', (req, res) => {
 });
 
 app.post('/mqttErgebnis', (req, res) => {
-    mqttErgebnis = req.body;
-    mqttClient.publish('ergebnis', JSON.stringify(mqttErgebnis));
+    mqttErgebnis.push(req.body);
+
+    mqttClient.publish('ergebnis', JSON.stringify(req.body));
+    res.send(mqttErgebnis);
+    console.log(req.body);
+    console.log(mqttErgebnis);
 });
 
 

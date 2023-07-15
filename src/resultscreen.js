@@ -1,9 +1,7 @@
 const tabelle = document.getElementById("resultTable");
 const tbody = tabelle.querySelector("tbody");
 var userTipps = null;
-const hash = window.location.hash;
-const cleanhash = hash.slice(1);
-const userName = cleanhash;
+const userName = window.location.hash.slice(1);
 var correct = 0;
 let correctAnswers = 0;
 let formattedTime = null;
@@ -19,40 +17,9 @@ function getResultScreenUserInput() {
   })
     .then(response => response.json())
     .then(data => {
+
       userTipps = data;
-      var length = userTipps.length;
-      if (userTipps[length - 1].Name == userName) {
-        const tr = document.createElement("tr");
-
-        // Ergebnis-Button generieren
-        const resultCell = document.createElement("td");
-        const resultButton = document.createElement("button");
-        resultButton.textContent = "Mehr Informationen";
-        resultButton.addEventListener("click", () => {
-          window.location.href = "resultreview.html#" + userName;
-        });
-        resultCell.appendChild(resultButton);
-        tr.appendChild(resultCell);
-
-        // Spielername hinzufügen
-        const spielerCell = document.createElement("td");
-        spielerCell.textContent = userName;
-        tr.appendChild(spielerCell);
-
-        // Punkte hinzufügen
-        const punkteCell = document.createElement("td");
-        const punkte = getPoints(userTipps, userName); // Hier deine Funktion getPoints implementieren
-        punkteCell.textContent = punkte + "/15";
-        tr.appendChild(punkteCell);
-
-        // Zeit hinzufügen
-        const zeitCell = document.createElement("td");
-        zeitCell.textContent = formattedTime;
-        tr.appendChild(zeitCell);
-
-        tbody.appendChild(tr);
-        mqttErgebnisPost(userName, punkte, formattedTime);
-      }
+      mqttErgebnisPost(userName, getPoints(userTipps, userName), formattedTime);
 
     });
 }
@@ -79,6 +46,7 @@ function formatTime(time) {
 
 //ließt die richtigen Punkte der Spieler aus
 function getPoints(userTipps, userName) {
+  CorrectAnswers = 0;
   for (let i = 0; i < userTipps.length; i++) {
     if (userTipps[i].Name == userName && userTipps[i].Correct == true) {
       correctAnswers++;
@@ -105,7 +73,45 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
       return response.json();
     })
     .then(data => {
-      console.log(data);
+      for (let i = 0; i < data.length; i++) {
+
+        var secoundUserData = data[i];
+        var userName2 = secoundUserData.UserName;
+        var correctAnswer2 = secoundUserData.CorrectAnswer;
+        var formattedTime2 = secoundUserData.formattedTime;
+
+        const tr = document.createElement("tr");
+
+        // Ergebnis-Button generieren
+        const resultCell = document.createElement("td");
+        const resultButton = document.createElement("button");
+        resultButton.textContent = "Mehr Informationen";
+        resultButton.addEventListener("click", () => {
+          window.location.href = "resultreview.html#" + userName2;
+        });
+        resultCell.appendChild(resultButton);
+        tr.appendChild(resultCell);
+
+        // Spielername hinzufügen
+        const spielerCell = document.createElement("td");
+        spielerCell.textContent = userName2;
+        tr.appendChild(spielerCell);
+
+        // Punkte hinzufügen
+        const punkteCell = document.createElement("td");
+        const punkte = correctAnswer2; // Hier deine Funktion getPoints implementieren
+        punkteCell.textContent = punkte + "/15";
+        tr.appendChild(punkteCell);
+
+        // Zeit hinzufügen
+        const zeitCell = document.createElement("td");
+        console.log(formatTime2)
+        zeitCell.textContent = formattedTime2;
+        tr.appendChild(zeitCell);
+
+        tbody.appendChild(tr);
+        correctAnswers = 0;
+      }
     })
     .catch(error => {
       console.error('Error:', error);

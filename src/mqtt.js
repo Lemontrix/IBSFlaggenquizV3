@@ -29,14 +29,10 @@ mqttClient.on('message', (topic, message) => {
     if (topic === 'ergebnis') {
         var mqttErgebnis = []
         mqttErgebnis = JSON.parse(message);
-        console.log(mqttErgebnis)
         var userName = mqttErgebnis.UserName;
-        console.log(userName);
         correctAnswer = mqttErgebnis.CorrectAnswer;
-        console.log(correctAnswer);
         var formattedTime = mqttErgebnis.FormattedTime;
-        console.log(formattedTime);
-
+        console.log(mqttErgebnis);
         const tr = document.createElement("tr");
 
         // Ergebnis-Button generieren
