@@ -40,7 +40,7 @@ mqttClient.on('message', (topic, message) => {
         const resultButton = document.createElement("button");
         resultButton.textContent = "Mehr Informationen";
         resultButton.addEventListener("click", () => {
-            window.location.href = "resultreview.html#" + userName;
+          const popupWindow = window.open("resultreview.html#" + userName, "_blank", "width=500,height=500");
         });
         resultCell.appendChild(resultButton);
         tr.appendChild(resultCell);

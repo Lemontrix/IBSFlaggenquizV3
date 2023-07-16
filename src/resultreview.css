@@ -64,20 +64,3 @@ tr:nth-child(even) {
     padding: 0;
 }
 
-#zuruckbutton {
-    background-color: gold;
-    font-size: x-large;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-#zuruckbutton2 {
-    background-color: gold;
-    font-size: x-large;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}

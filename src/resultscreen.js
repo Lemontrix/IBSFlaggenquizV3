@@ -91,8 +91,9 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
         const resultButton = document.createElement("button");
         resultButton.textContent = "Mehr Informationen";
         resultButton.addEventListener("click", () => {
-          window.location.href = "resultreview.html#" + userName2;
-        });
+        const popupWindow = window.open("resultreview.html#" + userName2, "_blank", "width=500,height=500");
+});
+
         resultCell.appendChild(resultButton);
         tr.appendChild(resultCell);
 
