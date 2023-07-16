@@ -89,8 +89,8 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
 
         schleifenDurchgang = 2;
       } */
-      console.log(schleifenDurchgang);
-      for (let i = 0; i < schleifenDurchgang; i++) {
+     // console.log(schleifenDurchgang);
+      for (let i = 0; i < 2; i++) {
         var secoundUserData = data[i];
         var userName2 = secoundUserData.UserName;
         uN.push(userName2);
@@ -125,7 +125,7 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
 
         // Punkte hinzufügen
         const punkteCell = document.createElement("td");
-        const punkte = correctAnswer2; // Hier deine Funktion getPoints implementieren
+        const punkte = correctAnswer2;
         punkteCell.textContent = punkte + "/15";
         tr.appendChild(punkteCell);
 
