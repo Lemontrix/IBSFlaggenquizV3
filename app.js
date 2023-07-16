@@ -74,6 +74,8 @@ app.get('/resultreview.html', (req, res) => res.sendFile(__dirname + '/src/resul
 
 app.get('/gamejoin.js', (req, res) => res.sendFile(__dirname + '/src/gamejoin.js'));
 
+app.get('/resultreview.js', (req, res) => res.sendFile(__dirname + '/src/resultreview.js'));
+
 // Endpunkt zum eigentlichen Flaggenquiz
 app.post('/apiImage', (req, res) => {
     if (flaglist.length == 0) {
@@ -82,7 +84,6 @@ app.post('/apiImage', (req, res) => {
                 randomID = Math.floor(Math.random() * 242);
             } while (flaglist.includes(randomID));
             flaglist.push(randomID);
-            console.log(flaglist);
             country = (flags.randomFlag(randomID));
             correctAnswer.push(country.countryName);
         }
@@ -98,7 +99,6 @@ app.post('/sendendzeit', (req, res) => {
     var minutes = Math.floor(endzeit / 60);
     var seconds = endzeit % 60;
     var formattedTime = formatTime(minutes) + ":" + formatTime(seconds);
-    console.log(formattedTime + " hat der Kelb gebraucht");
 });
 
 function formatTime(time) {
@@ -141,6 +141,9 @@ app.post('/mqttErgebnis', (req, res) => {
     res.send(mqttErgebnis);
 });
 
+app.get('/correctAnwser', (req, res) => {
+    res.json(correctAnswer);
+});
 
 // Konsolenübergabe des Ports
 app.listen(3000, () => {

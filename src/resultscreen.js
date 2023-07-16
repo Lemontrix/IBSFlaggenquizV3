@@ -78,7 +78,6 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
     })
     .then(data => {
       for (let i = 0; i < 2; i++) {
-
         var secoundUserData = data[i];
         var userName2 = secoundUserData.UserName;
         var correctAnswer2 = secoundUserData.CorrectAnswer;
@@ -91,35 +90,35 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
         const resultButton = document.createElement("button");
         resultButton.textContent = "Mehr Informationen";
         resultButton.addEventListener("click", () => {
-        const popupWindow = window.open("resultreview.html#" + userName2, "_blank", "width=500,height=500");
-});
+          const popupWindow = window.open("resultreview.html#" + userName2, "_blank", "width=500,height=500");
+      });
 
-        resultCell.appendChild(resultButton);
-        tr.appendChild(resultCell);
+  resultCell.appendChild(resultButton);
+  tr.appendChild(resultCell);
 
-        // Spielername hinzufügen
-        const spielerCell = document.createElement("td");
-        spielerCell.textContent = userName2;
-        tr.appendChild(spielerCell);
+  // Spielername hinzufügen
+  const spielerCell = document.createElement("td");
+  spielerCell.textContent = userName2;
+  tr.appendChild(spielerCell);
 
-        // Punkte hinzufügen
-        const punkteCell = document.createElement("td");
-        const punkte = correctAnswer2; // Hier deine Funktion getPoints implementieren
-        punkteCell.textContent = punkte + "/15";
-        tr.appendChild(punkteCell);
+  // Punkte hinzufügen
+  const punkteCell = document.createElement("td");
+  const punkte = correctAnswer2; // Hier deine Funktion getPoints implementieren
+  punkteCell.textContent = punkte + "/15";
+  tr.appendChild(punkteCell);
 
-        // Zeit hinzufügen
-        const zeitCell = document.createElement("td");
-        console.log(formattedTime2);
-        zeitCell.textContent = formattedTime2;
-        tr.appendChild(zeitCell);
+  // Zeit hinzufügen
+  const zeitCell = document.createElement("td");
+  console.log(formattedTime2);
+  zeitCell.textContent = formattedTime2;
+  tr.appendChild(zeitCell);
 
-        tbody.appendChild(tr);
-        correctAnswers = 0;
-      }
+  tbody.appendChild(tr);
+  correctAnswers = 0;
+}
     })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+    .catch (error => {
+  console.error('Error:', error);
+});
 }
 
