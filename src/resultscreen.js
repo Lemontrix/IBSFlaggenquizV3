@@ -6,7 +6,9 @@ var correct = 0;
 let correctAnswers = 0;
 let formattedTime = null;
 var buttonIDCounter = 0;
-var uN = []
+var uN = [];
+var dataLengthCheck = [];
+var schleifenDurchgang = 0;
 
 
 
@@ -79,12 +81,19 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
       return response.json();
     })
     .then(data => {
-      for (let i = 0; i < 2; i++) {
+/*      dataLengthCheck.push(data);
+      console.log(dataLengthCheck.length);
+      if (dataLengthCheck.length == 1) {
+        schleifenDurchgang = 1;
+      } else {
+
+        schleifenDurchgang = 2;
+      } */
+      console.log(schleifenDurchgang);
+      for (let i = 0; i < schleifenDurchgang; i++) {
         var secoundUserData = data[i];
         var userName2 = secoundUserData.UserName;
         uN.push(userName2);
-        console.log(uN[0])
-        console.log(uN[1])
         var correctAnswer2 = secoundUserData.CorrectAnswer;
         var formattedTime2 = secoundUserData.FormattedTime;
 
@@ -127,8 +136,8 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
         tr.appendChild(zeitCell);
 
         tbody.appendChild(tr);
-        correctAnswers = 0;
       }
+
 
       function generateUniqueId() {
         buttonIDCounter++
