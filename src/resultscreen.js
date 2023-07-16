@@ -5,6 +5,8 @@ const userName = window.location.hash.slice(1);
 var correct = 0;
 let correctAnswers = 0;
 let formattedTime = null;
+var buttonIDCounter = 0;
+var uN = []
 
 
 
@@ -80,6 +82,9 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
       for (let i = 0; i < 2; i++) {
         var secoundUserData = data[i];
         var userName2 = secoundUserData.UserName;
+        uN.push(userName2);
+        console.log(uN[0])
+        console.log(uN[1])
         var correctAnswer2 = secoundUserData.CorrectAnswer;
         var formattedTime2 = secoundUserData.FormattedTime;
 
@@ -89,36 +94,50 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
         const resultCell = document.createElement("td");
         const resultButton = document.createElement("button");
         resultButton.textContent = "Mehr Informationen";
+        const uniqueId = "button_" + generateUniqueId();
+        resultButton.id = uniqueId;
         resultButton.addEventListener("click", () => {
-          const popupWindow = window.open("resultreview.html#" + userName2, "_blank", "width=500,height=500");
-      });
+          console.log(resultButton.id);
+          if (resultButton.id == 'button_1') {
+            const popupWindow = window.open("resultreview.html#" + uN[0], "_blank", "width=500,height=500");
+          }
+          if (resultButton.id == 'button_2') {
+            const popupWindow = window.open("resultreview.html#" + uN[1], "_blank", "width=500,height=500");
+          }
+        });
 
-  resultCell.appendChild(resultButton);
-  tr.appendChild(resultCell);
+        resultCell.appendChild(resultButton);
+        tr.appendChild(resultCell);
 
-  // Spielername hinzufügen
-  const spielerCell = document.createElement("td");
-  spielerCell.textContent = userName2;
-  tr.appendChild(spielerCell);
+        // Spielername hinzufügen
+        const spielerCell = document.createElement("td");
+        spielerCell.textContent = userName2;
+        tr.appendChild(spielerCell);
 
-  // Punkte hinzufügen
-  const punkteCell = document.createElement("td");
-  const punkte = correctAnswer2; // Hier deine Funktion getPoints implementieren
-  punkteCell.textContent = punkte + "/15";
-  tr.appendChild(punkteCell);
+        // Punkte hinzufügen
+        const punkteCell = document.createElement("td");
+        const punkte = correctAnswer2; // Hier deine Funktion getPoints implementieren
+        punkteCell.textContent = punkte + "/15";
+        tr.appendChild(punkteCell);
 
-  // Zeit hinzufügen
-  const zeitCell = document.createElement("td");
-  console.log(formattedTime2);
-  zeitCell.textContent = formattedTime2;
-  tr.appendChild(zeitCell);
+        // Zeit hinzufügen
+        const zeitCell = document.createElement("td");
+        console.log(formattedTime2);
+        zeitCell.textContent = formattedTime2;
+        tr.appendChild(zeitCell);
 
-  tbody.appendChild(tr);
-  correctAnswers = 0;
-}
+        tbody.appendChild(tr);
+        correctAnswers = 0;
+      }
+
+      function generateUniqueId() {
+        buttonIDCounter++
+        return buttonIDCounter;
+      }
+
     })
-    .catch (error => {
-  console.error('Error:', error);
-});
+    .catch(error => {
+      console.error('Error:', error);
+    });
 }
 

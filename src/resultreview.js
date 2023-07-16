@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
   // Benutzername aus der URL holen
-  const userName = window.location.hash.substring(1);
+  const userName = window.location.hash.slice(1);
   var correctResultArray = [];
 
   getResultScreenUserInput();
