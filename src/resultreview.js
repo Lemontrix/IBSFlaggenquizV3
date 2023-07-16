@@ -38,11 +38,10 @@ window.addEventListener("DOMContentLoaded", () => {
             // Zellen erstellen und Daten einfügen
             const userInputCell = newRow.insertCell();
             userInputCell.textContent = userTipps[i].UserInput;
-            
-        
+            const correctResultCell = newRow.insertCell();
+            correctResultCell.textContent = correctResultArray[i];
         }
-        const correctResultCell = newRow.insertCell();
-        correctResultCell.textContent = correctResultArray[i];
+        
           }
         });
     }
