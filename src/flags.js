@@ -29,7 +29,7 @@ function randomFlag(randomID) {
             break;
 
         case 4:
-            countryName = 'Anguillas'
+            countryName = 'Anguilla'
             path = ('/Images/ai.png');
             countryNameAlternativ = null
             break;
@@ -173,7 +173,7 @@ function randomFlag(randomID) {
             break;
 
         case 28:
-            countryName = 'Boneires'
+            countryName = 'Boneire'
             path = ('/Images/bq.png');
             countryNameAlternativ = null
             break;
@@ -389,8 +389,8 @@ function randomFlag(randomID) {
             break;
 
         case 64:
-            countryName = 'Demokratische Republik Sahara'
-            countryNameAlternativ = 'Sahara'
+            countryName = 'Demokratische Republik Arabische Sahara'
+            countryNameAlternativ = 'Westsahara'
             path = ('/Images/eh.png');
             break;
 
@@ -854,7 +854,7 @@ function randomFlag(randomID) {
         case 141:
             countryName = 'Marshallinseln'
             path = ('/Images/mh.png');
-            countryNameAlternativ = 'Marschallinseln'
+            countryNameAlternativ = null
             break;
 
         case 142:
@@ -1086,7 +1086,7 @@ function randomFlag(randomID) {
             break;
 
         case 180:
-            countryName = 'Palaus'
+            countryName = 'Palau'
             path = ('/Images/pw.png');
             countryNameAlternativ = null
             break;
@@ -1136,7 +1136,7 @@ function randomFlag(randomID) {
         case 188:
             countryName = 'Saudi-Arabien'
             path = ('/Images/sa.png');
-            countryNameAlternativ = null
+            countryNameAlternativ = 'Saudi Arabien'
             break;
 
         case 189:
@@ -1230,7 +1230,7 @@ function randomFlag(randomID) {
             break;
 
         case 204:
-            countryName = 'El Salvator'
+            countryName = 'El Salvador'
             path = ('/Images/sv.png');
             countryNameAlternativ = null
             break;
@@ -1410,7 +1410,7 @@ function randomFlag(randomID) {
             break;
 
         case 234:
-            countryName = 'Vanuatus'
+            countryName = 'Vanuatu'
             path = ('/Images/vu.png');
             countryNameAlternativ = null
             break;

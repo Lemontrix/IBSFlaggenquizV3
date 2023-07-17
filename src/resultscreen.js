@@ -94,6 +94,8 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
         var secoundUserData = data[i];
         var userName2 = secoundUserData.UserName;
         uN.push(userName2);
+        console.log(uN[0])
+        console.log(uN[1])
         var correctAnswer2 = secoundUserData.CorrectAnswer;
         var formattedTime2 = secoundUserData.FormattedTime;
 
@@ -125,7 +127,7 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
 
         // Punkte hinzufügen
         const punkteCell = document.createElement("td");
-        const punkte = correctAnswer2;
+        const punkte = correctAnswer2; // Hier deine Funktion getPoints implementieren
         punkteCell.textContent = punkte + "/15";
         tr.appendChild(punkteCell);
 
@@ -136,8 +138,8 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
         tr.appendChild(zeitCell);
 
         tbody.appendChild(tr);
+        correctAnswers = 0;
       }
-
 
       function generateUniqueId() {
         buttonIDCounter++
