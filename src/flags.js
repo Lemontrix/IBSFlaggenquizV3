@@ -96,7 +96,7 @@ function randomFlag(randomID) {
 
         case 15:
             countryName = 'Bosnien und Herzegowina'
-            countryNameAlternativ = 'Bosnien Herzegownia'
+            countryNameAlternativ = 'Bosnien Herzegowina'
             path = ('/Images/ba.png');
             break;
 
@@ -205,7 +205,7 @@ function randomFlag(randomID) {
         case 33:
             countryName = 'Botswana'
             path = ('/Images/bw.png');
-            countryNameAlternativ = null
+            countryNameAlternativ = 'Botsuana'
             break;
 
         case 34:
@@ -247,7 +247,7 @@ function randomFlag(randomID) {
         case 40:
             countryName = 'Kongo'
             path = ('/Images/cg.png');
-            countryNameAlternativ = 'Republik Kongo'
+            countryNameAlternativ = null
             break;
 
         case 41:
@@ -704,7 +704,7 @@ function randomFlag(randomID) {
         case 116:
             countryName = 'Kambodscha'
             path = ('/Images/kh.png');
-            countryNameAlternativ = 'Cambodscha'
+            countryNameAlternativ = null
             break;
 
         case 117:
@@ -882,7 +882,7 @@ function randomFlag(randomID) {
             break;
 
         case 146:
-            countryName = 'Macaus'
+            countryName = 'Macau'
             path = ('/Images/mo.png');
             countryNameAlternativ = null
             break;
@@ -894,7 +894,7 @@ function randomFlag(randomID) {
             break;
 
         case 148:
-            countryName = 'Mariniques'
+            countryName = 'Marinique'
             path = ('/Images/mq.png');
             countryNameAlternativ = null
             break;
@@ -1026,7 +1026,7 @@ function randomFlag(randomID) {
             break;
 
         case 170:
-            countryName = 'Französisch Polynesien'
+            countryName = 'Französisch-Polynesien'
             path = ('/Images/pf.png');
             countryNameAlternativ = null
             break;
@@ -1237,7 +1237,7 @@ function randomFlag(randomID) {
 
         case 205:
             countryName = 'Saint-Martins'
-            countryNameAlternativ = 'St Martins'
+            countryNameAlternativ = 'St. Martins'
             path = ('/Images/sx.png');
             break;
 
@@ -1255,7 +1255,7 @@ function randomFlag(randomID) {
 
         case 208:
             countryName = 'Turks- und Caicosinseln'
-            countryNameAlternativ = 'Turk und Caicosinseln'
+            countryNameAlternativ = 'Turks und Caicosinseln'
             path = ('/Images/tc.png');
             break;
 

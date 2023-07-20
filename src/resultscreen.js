@@ -81,17 +81,20 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
       return response.json();
     })
     .then(data => {
-/*      dataLengthCheck.push(data);
+      dataLengthCheck = (data);
       console.log(dataLengthCheck.length);
       if (dataLengthCheck.length == 1) {
         schleifenDurchgang = 1;
       } else {
-
         schleifenDurchgang = 2;
-      } */
-     // console.log(schleifenDurchgang);
-      for (let i = 0; i < 2; i++) {
-        var secoundUserData = data[i];
+      }
+      console.log(schleifenDurchgang);
+      for (let i = 0; i < schleifenDurchgang; i++) {
+        if (schleifenDurchgang == 1) {
+          var secoundUserData = data[0];
+        } else {
+          var secoundUserData = data[i];
+        }
         var userName2 = secoundUserData.UserName;
         uN.push(userName2);
         console.log(uN[0])
