@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const playButton = document.getElementById('play-button');
-    const hash = window.location.hash;
-    const cleanhash = hash.slice(1);
-    const name = cleanhash;
+    const name = window.location.hash.slice(1);
 
 
     playButton.addEventListener('click', () => {

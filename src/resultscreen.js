@@ -25,7 +25,6 @@ function getResultScreenUserInput() {
     .then(data => {
 
       userTipps = data;
-      console.log(data);
 
       mqttErgebnisPost(userName, getPoints(userTipps, userName), formattedTime);
 
@@ -82,13 +81,11 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
     })
     .then(data => {
       dataLengthCheck = (data);
-      console.log(dataLengthCheck.length);
       if (dataLengthCheck.length == 1) {
         schleifenDurchgang = 1;
       } else {
         schleifenDurchgang = 2;
       }
-      console.log(schleifenDurchgang);
       for (let i = 0; i < schleifenDurchgang; i++) {
         if (schleifenDurchgang == 1) {
           var secoundUserData = data[0];
@@ -97,8 +94,6 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
         }
         var userName2 = secoundUserData.UserName;
         uN.push(userName2);
-        console.log(uN[0])
-        console.log(uN[1])
         var correctAnswer2 = secoundUserData.CorrectAnswer;
         var formattedTime2 = secoundUserData.FormattedTime;
 
@@ -111,7 +106,6 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
         const uniqueId = "button_" + generateUniqueId();
         resultButton.id = uniqueId;
         resultButton.addEventListener("click", () => {
-          console.log(resultButton.id);
           if (resultButton.id == 'button_1') {
             const popupWindow = window.open("resultreview.html#" + uN[0], "_blank", "width=500,height=500");
           }
@@ -136,7 +130,6 @@ function mqttErgebnisPost(userName, correctAnswer, formattedTime) {
 
         // Zeit hinzufügen
         const zeitCell = document.createElement("td");
-        console.log(formattedTime2);
         zeitCell.textContent = formattedTime2;
         tr.appendChild(zeitCell);
 

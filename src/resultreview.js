@@ -12,8 +12,6 @@ window.addEventListener("DOMContentLoaded", () => {
       .then(response => response.json())
       .then(data => {
         userTipps = data;
-        console.log(data);
-        var userInputArray = userTipps;
 
         getCorrectAnwser(userTipps);
       });
@@ -26,7 +24,6 @@ window.addEventListener("DOMContentLoaded", () => {
       .then(response => response.json())
       .then(data => {
         correctResultArray = data;
-        console.log(userTipps);
 
 
         // Tabelle finden
